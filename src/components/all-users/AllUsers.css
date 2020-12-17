@@ -1,0 +1,9 @@
+.parent {
+    display: flex;
+}
+
+.column {
+    flex-direction: column;
+    /*width: 50%;*/
+
+}
