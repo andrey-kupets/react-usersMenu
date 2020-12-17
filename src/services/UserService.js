@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import useFetch from "./useFetch";
 
 class UserService extends Component {
-   getUser(url, id) {
-       return useFetch(`${url}/${id}`).then(user => user.json());
-   }
+    url = 'https://jsonplaceholder.typicode.com/users';
+
+    getUser(id) {
+        return fetch(`${this.url}/${id}`).then(user => user.json());
+    }
 }
 
 export default UserService;
-

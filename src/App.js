@@ -14,9 +14,11 @@ class App extends Component {
   render() {
     return (
         <div>
+            <Link to={'/users'}>users</Link>
             <Route path={'/users'} render={() => {
                 return <AllUsers/>;
             }}/>
+
         </div>
     );
   }

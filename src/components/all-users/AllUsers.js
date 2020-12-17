@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import useFetch from "../../services/useFetch";
-// import * as url from "url";
+import useFetch from "../../services/UseFetch";
 import {
   BrowserRouter as Router,
   Switch,
@@ -10,30 +9,27 @@ import {
 } from "react-router-dom";
 import User from "../user/User";
 import FullUserInfo from "../fullUserInfo/FullUserInfo";
-
-
-
+import './AllUsers.css';
 
 class AllUsers extends Component {
 
-    state = { users: []};
+    state = {users: []};
 
     componentDidMount() {
         const {match: {url}} = this.props;
-        // eslint-disable-next-line react-hooks/rules-of-hooks
         useFetch(url).then(users => this.setState({users}));
     }
 
     render() {
         const {users} = this.state;
-        console.log(users);
         return (
-            <div>
-                {users.map(value => <User item={value} key={value.id}/>)}
-                <div>
+            <div className={'parent'}>
+                <div className={'column'}>{users.map(value => <User item={value} key={value.id}/>)}</div>
+                <div className={'column'}>
                     <Route path={'/users/:id'} render={(props) => {
                         console.log(props)
-                        return <FullUserInfo/>
+                        const {match: {params: {id}}} = props;
+                        return <FullUserInfo {...props} key={id}/>
                     }}/>
                 </div>
             </div>
