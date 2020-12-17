@@ -5,6 +5,7 @@ class User extends Component {
         const {item} = this.props;
         return (
             <div>
+                {/* eslint-disable-next-line react/jsx-no-undef */}
                 {item.id} - {item.name}
             </div>
         );

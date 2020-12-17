@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {useFetch} from "../../services/useFetch";
+import useFetch from "../../services/useFetch";
 // import * as url from "url";
 import {
   BrowserRouter as Router,
@@ -9,6 +9,7 @@ import {
   withRouter
 } from "react-router-dom";
 import User from "../user/User";
+import FullUserInfo from "../fullUserInfo/FullUserInfo";
 
 
 
@@ -29,9 +30,22 @@ class AllUsers extends Component {
         return (
             <div>
                 {users.map(value => <User item={value} key={value.id}/>)}
+                <div>
+                    <Route path={'/users/:id'} render={(props) => {
+                        console.log(props)
+                        return <FullUserInfo/>
+                    }}/>
+                </div>
             </div>
         );
     }
 }
 
 export default withRouter(AllUsers);
+
+// <div className={'nest'}>
+//     <Route path={'/users/:id'} render={(props) => {
+//         let {match: {params: {id}}} = props;
+//         return <FullUser {...props} key={id}/>;
+//     }}/>
+// </div>
