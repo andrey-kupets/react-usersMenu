@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import useFetch from "../../services/UseFetch";
+import doFetch from "../../services/UseFetch";
 import {
   BrowserRouter as Router,
   Switch,
@@ -17,7 +17,7 @@ class AllUsers extends Component {
 
     componentDidMount() {
         const {match: {url}} = this.props;
-        useFetch(url).then(users => this.setState({users}));
+        doFetch(url).then(users => this.setState({users}));
     }
 
     render() {
