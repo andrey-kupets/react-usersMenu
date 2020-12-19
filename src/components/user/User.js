@@ -16,7 +16,7 @@ class User extends Component {
             <div>
                 {/* eslint-disable-next-line react/jsx-no-undef */}
                 {item.id} - {item.name}
-                {<button><Link to={`${url}/${item.id}`}>details...</Link></button>}
+                <button><Link to={`${url}/${item.id}`}>details...</Link></button>
             </div>
         );
     }

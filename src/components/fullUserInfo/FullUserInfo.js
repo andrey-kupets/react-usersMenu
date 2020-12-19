@@ -14,16 +14,21 @@ class FullUserInfo extends Component {
 
     render() {
         const {user} = this.state;
+        const {showEditWindow} = this.props;
+        console.log(showEditWindow)
         return (
             <div>
                 {<div>
-                    <div>{user.id}</div>
-                    <div>{user.name}</div>
-                    <div>{user.username}</div>
-                    <div>{user.email}</div>
-                    <div>{user.phone}</div>
-                    <button>Save</button>
-                    <button>Delete</button>
+                    <p>{user.id}</p>
+                    <p>{user.name}</p>
+                    <p>{user.username}</p>
+                    <p>{user.email}</p>
+                    <p>{user.phone}</p>
+                    <p>{user.website}</p>
+                    <div>
+                        <button onClick={() => {showEditWindow()}}>Edit</button>
+                        <button onClick={() => {}}>Delete</button>
+                    </div>
                 </div>}
             </div>
 

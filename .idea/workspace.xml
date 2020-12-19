@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="11ba57af-170d-4a02-908a-f1e4dbf89f85" name="Default Changelist" comment="add render users &amp; user.info">
+    <list default="true" id="11ba57af-170d-4a02-908a-f1e4dbf89f85" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/all-users/AllUsers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/all-users/AllUsers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/UseFetch.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/UseFetch.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/fullUserInfo/FullUserInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/fullUserInfo/FullUserInfo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/user/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/user/User.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +62,7 @@
       <updated>1608221353577</updated>
       <workItem from="1608221355345" duration="8234000" />
       <workItem from="1608234543514" duration="6936000" />
-      <workItem from="1608309965952" duration="407000" />
+      <workItem from="1608396134107" duration="13752000" />
     </task>
     <task id="LOCAL-00001" summary="add render users">
       <created>1608225966841</created>

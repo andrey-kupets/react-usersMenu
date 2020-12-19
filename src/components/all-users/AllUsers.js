@@ -10,18 +10,27 @@ import {
 import User from "../user/User";
 import FullUserInfo from "../fullUserInfo/FullUserInfo";
 import './AllUsers.css';
+import EditWindow from "../edit-window/EditWindow";
 
 class AllUsers extends Component {
 
-    state = {users: []};
+    state = {users: [], editWindow: '', fullUser: []};
 
     componentDidMount() {
         const {match: {url}} = this.props;
         doFetch(url).then(users => this.setState({users}));
     }
 
+    showEditWindow = () => {
+        this.setState({editWindow: 'visible'})
+    }
+
+    // fullUser = (fullUser) => {
+    //     this.setState({fullUser})
+    // }
+
     render() {
-        const {users} = this.state;
+        const {users, editWindow} = this.state;
         return (
             <div className={'parent'}>
                 <div className={'column'}>{users.map(value => <User item={value} key={value.id}/>)}</div>
@@ -29,9 +38,10 @@ class AllUsers extends Component {
                     <Route path={'/users/:id'} render={(props) => {
                         console.log(props)
                         const {match: {params: {id}}} = props;
-                        return <FullUserInfo {...props} key={id}/>
+                        return <FullUserInfo {...props} showEditWindow={this.showEditWindow} key={id}/>
                     }}/>
                 </div>
+                {editWindow && <EditWindow/>}
             </div>
         );
     }
@@ -39,9 +49,3 @@ class AllUsers extends Component {
 
 export default withRouter(AllUsers);
 
-// <div className={'nest'}>
-//     <Route path={'/users/:id'} render={(props) => {
-//         let {match: {params: {id}}} = props;
-//         return <FullUser {...props} key={id}/>;
-//     }}/>
-// </div>
