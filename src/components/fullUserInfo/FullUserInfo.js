@@ -20,7 +20,7 @@ class FullUserInfo extends Component {
         return (
             <div>
                 <div>
-                    <h2><b>FULL USERINFO</b></h2>
+                    <h3><b>FULL USERINFO</b></h3>
                     <div>{id} - {name}</div>
                     <div>{username}</div>
                     <div>{email}</div>
