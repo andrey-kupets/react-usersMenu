@@ -1,33 +1,27 @@
 import React, {Component} from 'react';
 import doFetch from "../../services/UseFetch";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  withRouter
-} from "react-router-dom";
+import {withRouter} from "react-router-dom";
 import User from "../user/User";
 import FullUserInfo from "../fullUserInfo/FullUserInfo";
 import './AllUsers.css';
-import EditWindow from "../editUser-window/EditUserWindow";
 import EditUserWindow from "../editUser-window/EditUserWindow";
+import CreateUserWindow from "../createUser-window/CreateUserWindow";
 
 class AllUsers extends Component {
 
-    state = {users: [], editUserWindow: '', fullUser: ''};
+    state = {users: '', fullUser: '', editUserWindow: '', createUserWindow: ''};
 
     componentDidMount() {
         const {match: {url}} = this.props;
         doFetch(url).then(users => this.setState({users}));
     }
 
-    showEditUserWindow = () => {
-        this.setState({editUserWindow: 'visible'})
-    }
-
     fullUser = (fullInfo) => {
         this.setState({fullUser: fullInfo})
+    }
+
+    showEditUserWindow = () => {
+        this.setState({editUserWindow: 'visible'})
     }
 
     saveEditUser = (btnName, stateEditUserWindow) => {
@@ -45,16 +39,36 @@ class AllUsers extends Component {
         this.setState({users: newUsers});
     }
 
+    showCreateUserWindow = () => {
+        this.setState({createUserWindow: 'visible'})
+    }
+
+    createUser = (btnName, stateCreateUserWindow) => {
+        if (btnName === 'create') {
+            const {users} = this.state;
+            stateCreateUserWindow.id = users[users.length - 1].id + 1;
+            users.push(stateCreateUserWindow)
+            this.setState({users})
+        }
+        this.setState({createUserWindow: ''});
+    }
 
     render() {
-        const {users, editUserWindow, fullUser} = this.state;
+        const {users, fullUser, editUserWindow, createUserWindow} = this.state;
         return (
             <div className={'parent'}>
-                <div className={'column'}>{users.map(value => <User oneUser={value} key={value.id} fullUser={this.fullUser}/>)}</div>
+                <div className={'column'}>
+                    {users && users.map(value => <User oneUser={value} key={value.id} fullUser={this.fullUser}/>)}
+                    {users &&
+                    <button onClick={() => {this.showCreateUserWindow()}}>
+                        Create User
+                    </button>}
+                </div>
                 <div className={'column'}>
                     {fullUser && <FullUserInfo showEditUserWindow={this.showEditUserWindow} deleteUser={this.deleteUser} fullUser={fullUser}/>}
                 </div>
                 {editUserWindow && <EditUserWindow fullUser={fullUser} saveEditUser={this.saveEditUser}/>}
+                {createUserWindow && <CreateUserWindow createUser={this.createUser}/>}
             </div>
         );
     }

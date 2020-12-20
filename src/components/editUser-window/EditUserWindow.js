@@ -8,12 +8,12 @@ class EditUserWindow extends Component {
         this.state = {id, name, username, email, phone, website};
         console.log(this.state)
     }
-
     inputName = (e) => this.setState({name: e.target.value});
     inputUserName = (e) => this.setState({username: e.target.value});
     inputEmail = (e) => this.setState({email: e.target.value});
     inputPhone = (e) => this.setState({phone: e.target.value});
     inputWebsite = (e) => this.setState({website: e.target.value});
+
 
     render() {
         const {name, username, phone, email, website} = this.state;

@@ -5,7 +5,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/all-users/AllUsers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/all-users/AllUsers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/fullUserInfo/FullUserInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/fullUserInfo/FullUserInfo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/createUser-window/CreateUserWindow.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/createUser-window/CreateUserWindow.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/editUser-window/EditUserWindow.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/editUser-window/EditUserWindow.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/user/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/user/User.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -62,7 +63,9 @@
       <updated>1608221353577</updated>
       <workItem from="1608221355345" duration="8234000" />
       <workItem from="1608234543514" duration="6936000" />
-      <workItem from="1608396134107" duration="13752000" />
+      <workItem from="1608396134107" duration="14713000" />
+      <workItem from="1608418315878" duration="279000" />
+      <workItem from="1608451186132" duration="29228000" />
     </task>
     <task id="LOCAL-00001" summary="add render users">
       <created>1608225966841</created>
@@ -78,7 +81,42 @@
       <option name="project" value="LOCAL" />
       <updated>1608229600788</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add render empty editWindow on EditKey press">
+      <created>1608416910769</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1608416910769</updated>
+    </task>
+    <task id="LOCAL-00004" summary="added detailsBtn without link, remove service, simplified FullUserInfo.js">
+      <created>1608456382511</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1608456382511</updated>
+    </task>
+    <task id="LOCAL-00005" summary="added constructor to EditWindow.js, set defaultValues to inputs">
+      <created>1608468463731</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1608468463731</updated>
+    </task>
+    <task id="LOCAL-00006" summary="add edit/cancel buttons functionally">
+      <created>1608483151700</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1608483151700</updated>
+    </task>
+    <task id="LOCAL-00007" summary="add delete button functionality">
+      <created>1608487030675</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1608487030675</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -88,6 +126,11 @@
     <MESSAGE value="add render users" />
     <MESSAGE value="add render users continue" />
     <MESSAGE value="add render users &amp; user.info" />
-    <option name="LAST_COMMIT_MESSAGE" value="add render users &amp; user.info" />
+    <MESSAGE value="add render empty editWindow on EditKey press" />
+    <MESSAGE value="added detailsBtn without link, remove service, simplified FullUserInfo.js" />
+    <MESSAGE value="added constructor to EditWindow.js, set defaultValues to inputs" />
+    <MESSAGE value="add edit/cancel buttons functionally" />
+    <MESSAGE value="add delete button functionality" />
+    <option name="LAST_COMMIT_MESSAGE" value="add delete button functionality" />
   </component>
 </project>
