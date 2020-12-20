@@ -20,8 +20,7 @@ class FullUserInfo extends Component {
         return (
             <div>
                 <div>
-                    <p>{id}</p>
-                    <p>{name}</p>
+                    <span>{id} - {name}</span>
                     <p>{username}</p>
                     <p>{email}</p>
                     <p>{phone}</p>

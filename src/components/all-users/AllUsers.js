@@ -14,7 +14,7 @@ import EditWindow from "../edit-window/EditWindow";
 
 class AllUsers extends Component {
 
-    state = {users: [], editWindow: '', fullUser: []};
+    state = {users: [], editWindow: '', fullUser: ''};
 
     componentDidMount() {
         const {match: {url}} = this.props;
@@ -29,6 +29,10 @@ class AllUsers extends Component {
         this.setState({fullUser: fullInfo})
     }
 
+    saveEditWindow = () => {
+
+    }
+
     render() {
         const {users, editWindow, fullUser} = this.state;
         return (
@@ -37,7 +41,7 @@ class AllUsers extends Component {
                 <div className={'column'}>
                     {fullUser && <FullUserInfo showEditWindow={this.showEditWindow} fullUser={fullUser}/>}
                 </div>
-                {editWindow && <EditWindow/>}
+                {editWindow && <EditWindow fullUser={fullUser}/>}
             </div>
         );
     }
