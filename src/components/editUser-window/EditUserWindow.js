@@ -21,6 +21,7 @@ class EditUserWindow extends Component {
         return (
             <div>
                 <div>
+                    <h2><b>USER EDITION MENU</b></h2>
                     <div>
                         <span>Name:</span>
                         <input onInput={this.inputName} type={'text'} defaultValue={name}/>

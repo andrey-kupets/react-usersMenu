@@ -20,11 +20,12 @@ class FullUserInfo extends Component {
         return (
             <div>
                 <div>
-                    <span>{id} - {name}</span>
-                    <p>{username}</p>
-                    <p>{email}</p>
-                    <p>{phone}</p>
-                    <p>{website}</p>
+                    <h2><b>FULL USERINFO</b></h2>
+                    <div>{id} - {name}</div>
+                    <div>{username}</div>
+                    <div>{email}</div>
+                    <div>{phone}</div>
+                    <div>{website}</div>
                     <div>
                         <button onClick={() => {showEditUserWindow()}}>Edit</button>
                         <button onClick={() => {deleteUser(id)}}>Delete</button>

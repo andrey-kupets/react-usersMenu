@@ -15,6 +15,7 @@ class CreateUserWindow extends Component {
         return (
             <div>
                 <div>
+                    <h2><b>USER CREATION MENU</b></h2>
                     <div>
                         <span>Name:</span>
                         <input onInput={this.inputName} type={'text'}/>
