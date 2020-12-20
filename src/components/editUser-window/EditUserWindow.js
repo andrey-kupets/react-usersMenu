@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-class EditWindow extends Component {
+class EditUserWindow extends Component {
     constructor(props) {
         super(props);
         console.log(props)
@@ -17,7 +17,7 @@ class EditWindow extends Component {
 
     render() {
         const {name, username, phone, email, website} = this.state;
-        const {saveEditWindow} = this.props;
+        const {saveEditUser} = this.props;
         return (
             <div>
                 <div>
@@ -42,8 +42,8 @@ class EditWindow extends Component {
                         <input onInput={this.inputWebsite} type={'text'} defaultValue={website}/>
                     </div>
                     <div>
-                        <button onClick={() => saveEditWindow('save', this.state)}>Save</button>
-                        <button onClick={() => saveEditWindow()}>Cancel</button>
+                        <button onClick={() => saveEditUser('save', this.state)}>Save</button>
+                        <button onClick={() => saveEditUser()}>Cancel</button>
                     </div>
                 </div>
             </div>
@@ -51,4 +51,4 @@ class EditWindow extends Component {
     }
 }
 
-export default EditWindow;
+export default EditUserWindow;

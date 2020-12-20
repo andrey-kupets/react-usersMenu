@@ -10,57 +10,51 @@ import {
 import User from "../user/User";
 import FullUserInfo from "../fullUserInfo/FullUserInfo";
 import './AllUsers.css';
-import EditWindow from "../edit-window/EditWindow";
+import EditWindow from "../editUser-window/EditUserWindow";
+import EditUserWindow from "../editUser-window/EditUserWindow";
 
 class AllUsers extends Component {
 
-    state = {users: [], editWindow: '', fullUser: ''};
+    state = {users: [], editUserWindow: '', fullUser: ''};
 
     componentDidMount() {
         const {match: {url}} = this.props;
         doFetch(url).then(users => this.setState({users}));
     }
 
-    showEditWindow = () => {
-        this.setState({editWindow: 'visible'})
+    showEditUserWindow = () => {
+        this.setState({editUserWindow: 'visible'})
     }
 
     fullUser = (fullInfo) => {
         this.setState({fullUser: fullInfo})
     }
 
-    saveEditWindow = (btnName, stateEditWindow) => {
+    saveEditUser = (btnName, stateEditUserWindow) => {
         if (btnName === 'save') {
-            const users = this.state.users.filter(user => user.id !== stateEditWindow.id);
-            users.push(stateEditWindow);
+            const users = this.state.users.filter(user => user.id !== stateEditUserWindow.id);
+            users.push(stateEditUserWindow);
             this.setState({users});
-            users.sort((a, b) => a.id - b.id)
+            users.sort((a, b) => a.id - b.id);
         }
-            this.setState({editWindow: ''})
+            this.setState({editUserWindow: ''});
     }
 
-    // modalSaveClose = (btnName, stateFromModal) => {
-    //     if (btnName === 'save') {
-    //         const users = this.state.users.filter(user => user.id !== stateFromModal.id)
-    //         users.push(stateFromModal)
-    //         this.setState({chosenUser: stateFromModal})
-    //         users.sort((a, b) => {
-    //             return a.id - b.id
-    //         })
-    //         this.setState({users})
-    //     }
-    //     this.setState({modal: ''})
-    // }
+    deleteUser = (id) => {
+        const newUsers = this.state.users.filter(user => user.id !== id);
+        this.setState({users: newUsers});
+    }
+
 
     render() {
-        const {users, editWindow, fullUser} = this.state;
+        const {users, editUserWindow, fullUser} = this.state;
         return (
             <div className={'parent'}>
                 <div className={'column'}>{users.map(value => <User oneUser={value} key={value.id} fullUser={this.fullUser}/>)}</div>
                 <div className={'column'}>
-                    {fullUser && <FullUserInfo showEditWindow={this.showEditWindow} fullUser={fullUser}/>}
+                    {fullUser && <FullUserInfo showEditUserWindow={this.showEditUserWindow} deleteUser={this.deleteUser} fullUser={fullUser}/>}
                 </div>
-                {editWindow && <EditWindow fullUser={fullUser} saveEditWindow={this.saveEditWindow}/>}
+                {editUserWindow && <EditUserWindow fullUser={fullUser} saveEditUser={this.saveEditUser}/>}
             </div>
         );
     }

@@ -14,9 +14,9 @@ class FullUserInfo extends Component {
 
     render() {
         // const {user} = this.state;
-        const {showEditWindow, fullUser} = this.props;
+        const {showEditUserWindow, deleteUser, fullUser} = this.props;
         const {id, name, username, email, phone, website} = fullUser;
-        console.log(showEditWindow)
+        console.log(showEditUserWindow)
         return (
             <div>
                 <div>
@@ -26,8 +26,8 @@ class FullUserInfo extends Component {
                     <p>{phone}</p>
                     <p>{website}</p>
                     <div>
-                        <button onClick={() => {showEditWindow()}}>Edit</button>
-                        <button onClick={() => {}}>Delete</button>
+                        <button onClick={() => {showEditUserWindow()}}>Edit</button>
+                        <button onClick={() => {deleteUser(id)}}>Delete</button>
                     </div>
                 </div>
             </div>
