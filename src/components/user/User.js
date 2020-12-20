@@ -11,12 +11,11 @@ import {
 
 class User extends Component {
     render() {
-        const {item, match: {url}} = this.props;
+        const {fullUser, oneUser, oneUser: {id, name}} = this.props;
         return (
             <div>
-                {/* eslint-disable-next-line react/jsx-no-undef */}
-                {item.id} - {item.name}
-                <button><Link to={`${url}/${item.id}`}>details...</Link></button>
+                {id} - {name}
+                <button onClick={() => fullUser(oneUser)}>details...</button>
             </div>
         );
     }

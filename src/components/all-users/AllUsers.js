@@ -25,21 +25,17 @@ class AllUsers extends Component {
         this.setState({editWindow: 'visible'})
     }
 
-    // fullUser = (fullUser) => {
-    //     this.setState({fullUser})
-    // }
+    fullUser = (fullInfo) => {
+        this.setState({fullUser: fullInfo})
+    }
 
     render() {
-        const {users, editWindow} = this.state;
+        const {users, editWindow, fullUser} = this.state;
         return (
             <div className={'parent'}>
-                <div className={'column'}>{users.map(value => <User item={value} key={value.id}/>)}</div>
+                <div className={'column'}>{users.map(value => <User oneUser={value} key={value.id} fullUser={this.fullUser}/>)}</div>
                 <div className={'column'}>
-                    <Route path={'/users/:id'} render={(props) => {
-                        console.log(props)
-                        const {match: {params: {id}}} = props;
-                        return <FullUserInfo {...props} showEditWindow={this.showEditWindow} key={id}/>
-                    }}/>
+                    {fullUser && <FullUserInfo showEditWindow={this.showEditWindow} fullUser={fullUser}/>}
                 </div>
                 {editWindow && <EditWindow/>}
             </div>
