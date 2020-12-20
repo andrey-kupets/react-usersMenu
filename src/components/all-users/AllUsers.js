@@ -29,9 +29,28 @@ class AllUsers extends Component {
         this.setState({fullUser: fullInfo})
     }
 
-    saveEditWindow = () => {
-
+    saveEditWindow = (btnName, stateEditWindow) => {
+        if (btnName === 'save') {
+            const users = this.state.users.filter(user => user.id !== stateEditWindow.id);
+            users.push(stateEditWindow);
+            this.setState({users});
+            users.sort((a, b) => a.id - b.id)
+        }
+            this.setState({editWindow: ''})
     }
+
+    // modalSaveClose = (btnName, stateFromModal) => {
+    //     if (btnName === 'save') {
+    //         const users = this.state.users.filter(user => user.id !== stateFromModal.id)
+    //         users.push(stateFromModal)
+    //         this.setState({chosenUser: stateFromModal})
+    //         users.sort((a, b) => {
+    //             return a.id - b.id
+    //         })
+    //         this.setState({users})
+    //     }
+    //     this.setState({modal: ''})
+    // }
 
     render() {
         const {users, editWindow, fullUser} = this.state;
@@ -41,7 +60,7 @@ class AllUsers extends Component {
                 <div className={'column'}>
                     {fullUser && <FullUserInfo showEditWindow={this.showEditWindow} fullUser={fullUser}/>}
                 </div>
-                {editWindow && <EditWindow fullUser={fullUser}/>}
+                {editWindow && <EditWindow fullUser={fullUser} saveEditWindow={this.saveEditWindow}/>}
             </div>
         );
     }

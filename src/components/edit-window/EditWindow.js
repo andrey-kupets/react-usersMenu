@@ -16,10 +16,11 @@ class EditWindow extends Component {
     inputWebsite = (e) => this.setState({website: e.target.value});
 
     render() {
-        const {name, username, phone, email, website} = this.state
+        const {name, username, phone, email, website} = this.state;
+        const {saveEditWindow} = this.props;
         return (
             <div>
-                <form>
+                <div>
                     <div>
                         <span>Name:</span>
                         <input onInput={this.inputName} type={'text'} defaultValue={name}/>
@@ -41,10 +42,10 @@ class EditWindow extends Component {
                         <input onInput={this.inputWebsite} type={'text'} defaultValue={website}/>
                     </div>
                     <div>
-                        <button onClick={() => {}}>Save</button>
-                        <button>Cancel</button>
+                        <button onClick={() => saveEditWindow('save', this.state)}>Save</button>
+                        <button onClick={() => saveEditWindow()}>Cancel</button>
                     </div>
-                </form>
+                </div>
             </div>
         );
     }
