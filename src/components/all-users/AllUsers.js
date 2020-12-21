@@ -30,6 +30,7 @@ class AllUsers extends Component {
             users.push(stateEditUserWindow);
             this.setState({users});
             users.sort((a, b) => a.id - b.id);
+            this.fullUser(stateEditUserWindow);
         }
             this.setState({editUserWindow: ''});
     }
@@ -37,6 +38,7 @@ class AllUsers extends Component {
     deleteUser = (id) => {
         const newUsers = this.state.users.filter(user => user.id !== id);
         this.setState({users: newUsers});
+        this.fullUser();
     }
 
     showCreateUserWindow = () => {
