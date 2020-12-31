@@ -6,6 +6,7 @@ import FullUserInfo from "../fullUserInfo/FullUserInfo";
 import './AllUsers.css';
 import EditUserWindow from "../editUser-window/EditUserWindow";
 import CreateUserWindow from "../createUser-window/CreateUserWindow";
+import Loading from "../../services/Loading";
 
 class AllUsers extends Component {
 
@@ -57,23 +58,33 @@ class AllUsers extends Component {
 
     render() {
         const {users, fullUser, editUserWindow, createUserWindow} = this.state;
-        return (
-            <div className={'parent'}>
-                <div className={'column'}>
-                    {users && users.map(value => <User oneUser={value} key={value.id} fullUser={this.fullUser}/>)}
-                    {users &&
-                    <button onClick={() => {this.showCreateUserWindow()}}>
-                        Create User
-                    </button>}
+        if (users) {
+            return (
+                <div className={'parent'}>
+                    <div className={'column'}>
+                        {users && users.map(value => <User oneUser={value} key={value.id} fullUser={this.fullUser}/>)}
+                        {users &&
+                        <button onClick={() => {this.showCreateUserWindow()}}>
+                            Create User
+                        </button>}
+                    </div>
+                    <div className={'column'}>
+                        {fullUser && <FullUserInfo showEditUserWindow={this.showEditUserWindow} deleteUser={this.deleteUser} fullUser={fullUser}/>}
+                    </div>
+                    {editUserWindow && <EditUserWindow fullUser={fullUser} saveEditUser={this.saveEditUser}/>}
+                    {createUserWindow && <CreateUserWindow createUser={this.createUser}/>}
                 </div>
-                <div className={'column'}>
-                    {fullUser && <FullUserInfo showEditUserWindow={this.showEditUserWindow} deleteUser={this.deleteUser} fullUser={fullUser}/>}
+            );
+        } else {
+            return (
+                <div>
+                    <h2>Users List</h2>
+                    <Loading/>
                 </div>
-                {editUserWindow && <EditUserWindow fullUser={fullUser} saveEditUser={this.saveEditUser}/>}
-                {createUserWindow && <CreateUserWindow createUser={this.createUser}/>}
-            </div>
-        );
+            )
+        }
     }
+
 }
 
 export default withRouter(AllUsers);

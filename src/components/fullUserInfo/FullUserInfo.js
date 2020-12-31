@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import UserService from "../../services/UserService";
+import Loading from "../../services/Loading";
 
 class FullUserInfo extends Component {
     // state = {user: []};
@@ -17,23 +18,31 @@ class FullUserInfo extends Component {
         const {showEditUserWindow, deleteUser, fullUser} = this.props;
         const {id, name, username, email, phone, website} = fullUser;
         console.log(showEditUserWindow)
-        return (
-            <div>
+        if (fullUser) {
+            return (
                 <div>
-                    <h3><b>FULL USERINFO</b></h3>
-                    <div>{id} - {name}</div>
-                    <div>{username}</div>
-                    <div>{email}</div>
-                    <div>{phone}</div>
-                    <div>{website}</div>
                     <div>
-                        <button onClick={() => {showEditUserWindow()}}>Edit</button>
-                        <button onClick={() => {deleteUser(id)}}>Delete</button>
+                        <h3><b>FULL USERINFO</b></h3>
+                        <div>{id} - {name}</div>
+                        <div>{username}</div>
+                        <div>{email}</div>
+                        <div>{phone}</div>
+                        <div>{website}</div>
+                        <div>
+                            <button onClick={() => {showEditUserWindow()}}>Edit</button>
+                            <button onClick={() => {deleteUser(id)}}>Delete</button>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-        );
+            );
+        } else {
+            return (
+                <div>
+                    <Loading/>
+                </div>
+            )
+        }
     }
 }
 
